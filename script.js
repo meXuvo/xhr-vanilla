@@ -5,9 +5,14 @@ let sendButton = document.getElementById("send-button");
 let sendRequest = (method, url, data) => {
   let promise = new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
+
+    //request this url
     xhr.open(method, url);
+
+    //for json formate
     xhr.responseType = "json";
     xhr.setRequestHeader("content-type", "application/json");
+
     xhr.send(data);
     xhr.onload = function () {
       if (xhr.status >= 400) {
